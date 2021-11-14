@@ -11,6 +11,16 @@ app.use(express.json())
 app.use(cors())
 
 
+mongoose.connect(`mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PASSWORD}@cluster0.2aekx.mongodb.net/${process.env.MONGO_DB_DATABASE}?retryWrites=true&w=majority`,
+ {
+     useNewUrlParser: true,
+     useUnifiedTopology: true,
+     useCreateIndex: true
+    
+}).then(()=>{
+    console.log("Database connected successfully")
+});
+
 
 // LISTENER //
 
