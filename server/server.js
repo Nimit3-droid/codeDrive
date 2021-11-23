@@ -21,6 +21,13 @@ mongoose.connect(`mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO
     console.log("Database connected successfully")
 });
 
+// ROUTES //
+
+app.use('/', require('./controllers/rootController'))
+app.use('/user', require('./controllers/userController'))
+app.use('/admin', require('./controllers/adminController'))
+// app.use('/pwr', require('./controllers/pwrController'))
+
 
 // LISTENER //
 
