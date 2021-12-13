@@ -60,7 +60,7 @@ export default function RegistrationForm() {
         setRegistering(true)
         const newUser = await createUser(BASE_URL, formData)
         console.log(newUser)
-        if (newUser) {
+        if (newUser.error) {
             setDisplayErrors([`That ${newUser.error} is already taken`])
         } else {
             const {token, createdUser} = newUser

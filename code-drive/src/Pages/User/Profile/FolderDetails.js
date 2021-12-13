@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react'
 import { DataContext } from '../../../App'
 import { UserContext } from '../User'
-import { editFolder, deleteFolder } from '../../../API/apiData'
+import { editFolder, deleteFolder,deleteSnippet } from '../../../API/apiData'
 
 export default function FolderDetails({ folder, username }) {
 	const [editMode, setEditMode] = useState(false)
@@ -29,6 +29,7 @@ export default function FolderDetails({ folder, username }) {
 	const handleDelete = async (e) => {
 		const token = window.localStorage.getItem('token')
 		await deleteFolder(BASE_URL, username, token, folder._id)
+		// await deleteSnippet(BASE_URL, username, token, snippet._id)
 		setFilter("")
 		setRefreshTrigger(!refreshTrigger)
 		setDeleteMode(false)
@@ -75,7 +76,7 @@ export default function FolderDetails({ folder, username }) {
 				deleteMode ?
 					<div className="sm:ml-5 mt-5 space-y-4 sm:w-max p-5 flex-col items-baseline border-2 rounded-lg shadow border-red-600" onSubmit={ handleSubmit }>
 						<h1 className="sm:text-base font-bold sm:font-black">Are you sure?</h1>
-						<p className="text-xs sm:text-xs">All snippets inside <span className="font-bold">"{ folder.title }" </span>will be deleted!</p>
+						<p className="text-xs sm:text-xs">All snippets inside <span className="font-bold">"{ folder.title }" </span>will not be deleted! So Please make sure to Manully Delete them.</p>
 						<button className="focus:ring-0 btn-primary px-2 py-1 item-grow-0 mt-4 bg-red-600" id="edit" onClick={ handleDelete }>Yes, I'm sure!</button>
 						<button className="focus:ring-0 ml-5 btn-secondary px-2 py-1 item-grow-0" id="delete" onClick={ () => setDeleteMode(false) }>No, cancel!</button>
 					</div>

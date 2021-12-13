@@ -23,7 +23,7 @@ export default function UserDashboard() {
 			<div className="sm:ml-5 w-full sm:w-max h-max ">
 				<div className="hidden sm:block bg-gray-900 mt-0 w-min space-y-4 px-6 py-3 shadow-lg flex-shrink-0">
 					<p to={`/user/${userData.username}/dashboard`} className="cursor-pointer text-base font-normal" onClick={() => setFilter("")}>
-						All Snippets
+						Snippets
 					</p>
 					{userData.folders.length ? (
 						<div>
