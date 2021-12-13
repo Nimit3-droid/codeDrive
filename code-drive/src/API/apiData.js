@@ -255,12 +255,12 @@ export const forgotPassword = async (BASE_URL, PWR_USER, PWR_PASS, userEmail) =>
 		})
 		const data = res.json()
 		if (data.error) {
-			console.error("Error: forgotPassword error message from codelockr-api", data)
+			console.error("Error: forgotPassword error message from CodeDrive-api", data)
 			return data
 		}
 		else return data
 	} catch (error) {
-		console.error("Error: forgotPassword failed (codelockr-react)", error)
+		console.error("Error: forgotPassword failed (CodeDrive-react)", error)
 	}
 }
 
