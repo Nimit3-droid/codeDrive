@@ -138,7 +138,7 @@ export default function LoginForm({setSlide}) {
                                 }}
                                 className="text-gray-50 tracking-wider inline cursor-pointer hover:text-red-600 float-right"
                             >
-                                Forgot Password ?
+                                {/* Forgot Password ? */}
                             </p>
                         </div>
                         {forgotPwResult &&
@@ -158,7 +158,7 @@ export default function LoginForm({setSlide}) {
             {showForgotPw && (
                 <form noValidate onSubmit={handlePwReset}>
                     <div className="-mt-6">
-                        <p className="font-bold text-sm sm:text-sm pb-2">Forgot Password?</p>
+                        {/* <p className="font-bold text-sm sm:text-sm pb-2">Forgot Password?</p> */}
                         <p className="pb-4">Kindly provide the email you used when you created your account, and provided no tomfoolery is afoot, you will receive a temporary password in your inbox!</p>
                     </div>
                     <div className="flex flex-col items-start space-y-2 justify-center">

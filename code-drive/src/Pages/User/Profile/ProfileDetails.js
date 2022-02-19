@@ -52,7 +52,7 @@ export default function ProfileDetails() {
                         {editMode ? <div className="text-right space-x-4"><button onClick={() => setEditMode(false)} className="btn-secondary py-2 sm:text-sm text-xs">Cancel</button><button className="btn-primary mt-8" type="submit">Save</button></div> : null}
                     </form>
                     <div className="flex space-x-7 mt-8 justify-between items-baseline">
-                        {!editMode ? <><p className="transition hover:text-red-500 cursor-pointer py-2 sm:text-sm text-xs" onClick={() => setEditPassword(true)}>Reset Password</p>
+                        {!editMode ? <><p className="transition hover:text-red-500 cursor-pointer py-2 sm:text-sm text-xs" onClick={() => setEditPassword(true)}></p>
                             <button onClick={() => setEditMode(true)} className="btn-primary py-2">Edit Profile</button></>
                             : null
                         }

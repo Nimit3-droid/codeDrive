@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken')
 const SECRET = process.env.SECRET_KEY
 
 router.get('/', (req, res) => {
-	res.status(200).json({ msg: 'root route works!' })
+	res.status(200).json({ msg: 'I am in Root route' })
 })
 
 router.post('/login', async (req, res) => {

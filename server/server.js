@@ -19,7 +19,7 @@ mongoose.connect(`mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO
     
 }).then(()=>{
     console.log("Database connected successfully")
-});
+}).catch(err=>{console.log("Database connected failed")});
 
 // ROUTES //
 
