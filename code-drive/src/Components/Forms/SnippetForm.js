@@ -89,6 +89,22 @@ export default function SnippetForm() {
 
 	return (
 		<form noValidate className="max-w-4xl mx-4 sm:ml-10 mt-5 sm:mb-14 sm:w-3/4 space-y-4 text-xs sm:text-sm" onSubmit={handleErrors}>
+			<Link  
+							onClick={() =>
+								setSnippetForm({
+									title: "",
+									parentFolder: "",
+									parseFormat: "",
+									code: "",
+									notes: "",
+									isPrivate: false,
+								})
+							}
+							className="mr-10 btn-primary py-2 px-5"
+							to={`/user/${userData.username}/dashboard/`}
+						>
+							Back
+						</Link>
 			<h1 className="text-base sm:text-xl font-bold">{snippetSubmitMode === "POST" ? "Create a New Snippet" : `Edit ${snippetForm.title}`}</h1>
 			{error ? <h1 className="text-md sm:text-base font-normal text-red-600">Please Complete Required Fields</h1> : null}
 			<div className={error && !snippetForm.title ? "border-l-4 pl-4 border-red-600" : null}>

@@ -271,6 +271,7 @@ router.delete(
       const deletedFolder = await Folder.findByIdAndDelete(
         req.params.folder_id
       );
+      
       const updateUser = await User.findByIdAndUpdate(deletedFolder.owner, {
         $pull: { folders: deletedFolder._id },
       });
