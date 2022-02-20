@@ -28,6 +28,15 @@ app.use('/user', require('./controllers/userController'))
 app.use('/admin', require('./controllers/adminController'))
 // app.use('/pwr', require('./controllers/pwrController'))
 
+//Deployment 
+
+if(process,env.NODE_ENV=="production"){
+    app.use(express.static('client/build'));
+    // const path = require('path');
+    // app.get("*", (req, res) => {
+    //     res.sendFile(path.resolve(__dirname,'client','build','index.hrml'));
+    // });
+}
 
 // LISTENER //
 
