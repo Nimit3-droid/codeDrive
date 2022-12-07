@@ -24,7 +24,7 @@ router.post('/auth', async (req, res) => {
 								if (err) res.status(400).json({ error: "Error when attempting to save new password to user account", message: err })
 								else {
 									const templateData = {
-										service: "CODELOCKR",
+										service: "CODEDRIVE",
 										action: "PW_RESET",
 										firstName: foundUser.firstName,
 										lastName: foundUser.lastName,

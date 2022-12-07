@@ -10,7 +10,7 @@ export const getAllUsers = async (BASE_URL, token) => {
 		})
 		const data = await response.json()
 		return data
-	} catch (err) {
+	} catch (err) {	
 		console.error(err)
 	}
 }
