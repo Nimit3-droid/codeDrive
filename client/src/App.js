@@ -15,7 +15,8 @@ export default function App() {
 		firstName: "",
 		lastName: "",
 	})
-	const BASE_URL = process.env.BASE_URL || 'http://localhost:2020'
+	const BASE_URL = 'https://codedrive-backend.onrender.com'
+	console.log(BASE_URL)
 
 	const handleLogout = () => {
 		window.localStorage.clear()
