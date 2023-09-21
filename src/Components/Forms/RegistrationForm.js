@@ -1,5 +1,5 @@
 import {useState, useContext} from "react"
-import {useNavigate} from "react-router-dom"
+import {useHistory} from "react-router-dom"
 import {DataContext} from "../../App"
 import {createUser} from "../../API/apiData"
 import {v4 as uuid} from "uuid"
@@ -8,7 +8,7 @@ import ellipse3 from "../../images/ellipse-load@3x.png"
 import ellipse from "../../images/ellipse-load.png"
 
 export default function RegistrationForm() {
-    const history = useNavigate()
+    const history = useHistory()
     const {setShowRegistration, showRegistration, BASE_URL, setLoggedIn} = useContext(DataContext)
     const emailRegex =
         // eslint-disable-next-line no-control-regex
@@ -83,7 +83,7 @@ export default function RegistrationForm() {
                 confirmPassword: "",
             })
             setShowRegistration(false)
-            history(`/user/${createdUser.username}/dashboard`)
+            history.push(`/user/${createdUser.username}/dashboard`)
         }
     }
 

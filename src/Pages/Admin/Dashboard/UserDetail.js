@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 export default function UserDetail({ user }) {
 	const [showDetails, setShowDetails] = useState(false)
-	console.log('nimit',showDetails)
+
 
 	return (
 		<div onClick={ () => setShowDetails(!showDetails) } className="cursor-pointer w-11/12 sm:w-3/4 transition-transform transform hover:scale-105 bg-gradient-to-r from-darkBlue to-red-500 flex flex-col justify-between font-normal rounded-lg shadow-md border border-gray-500 px-2 py-1">

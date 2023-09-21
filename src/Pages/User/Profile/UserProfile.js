@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { Link, Routes, Route, useNavigate } from 'react-router-dom'
+import { Link, Switch, Route, useHistory } from 'react-router-dom'
 import ManageFolders from './ManageFolders'
 import ProfileDetails from './ProfileDetails'
 import DeleteProfile from './DeleteProfile'
@@ -7,13 +7,13 @@ import { UserContext } from '../User'
 
 export default function UserProfile() {
 	const userData = useContext(UserContext)
-	const history = useNavigate()
+	const history = useHistory()
 
 	const handleChange = (e) => {
 		const value = e.target.value
-		if (value === 'profile') return history(`/user/${ userData.username }/profile`)
-		if (value === 'folders') return history(`/user/${ userData.username }/profile/folders`)
-		if (value === 'delete-account') return history(`/user/${ userData.username }/profile/delete`)
+		if (value === 'profile') return history.push(`/user/${ userData.username }/profile`)
+		if (value === 'folders') return history.push(`/user/${ userData.username }/profile/folders`)
+		if (value === 'delete-account') return history.push(`/user/${ userData.username }/profile/delete`)
 	}
 
 
@@ -36,11 +36,11 @@ export default function UserProfile() {
 				</select>
 			</div>
 			<div className="ml-8 mt-4 sm:mt-0">
-				<Routes>
-					<Route path='/user/:username/profile/folders' element={ <ManageFolders/> } />
-					<Route path='/user/:username/profile/delete' element={ <DeleteProfile/> } />
-					<Route path='/user/:username/profile' element={ <ProfileDetails/> } />
-				</Routes>
+				<Switch>
+					<Route path='/user/:username/profile/folders' component={ ManageFolders } />
+					<Route path='/user/:username/profile/delete' component={ DeleteProfile } />
+					<Route path='/user/:username/profile' component={ ProfileDetails } />
+				</Switch>
 			</div>
 		</div>
 	)

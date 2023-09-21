@@ -1,11 +1,11 @@
 import { useContext } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 import { DataContext } from '../../../App'
 import { UserContext } from '../User'
 import { deleteUser } from '../../../API/apiData'
 
 export default function DeleteProfile() {
-	const history = useNavigate()
+	const history = useHistory()
 	const { userData } = useContext(UserContext)
 	const { BASE_URL, setLoggedIn } = useContext(DataContext)
 
@@ -20,7 +20,7 @@ export default function DeleteProfile() {
 			firstName: "",
 			lastName: ""
 		})
-		history('/')
+		history.push('/')
 	}
 
 	return (

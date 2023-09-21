@@ -1,5 +1,5 @@
 import { useState, useEffect, createContext } from "react"
-import { Route, Routes, useNavigate } from "react-router-dom"
+import { Route, Switch, useHistory } from "react-router-dom"
 import Landing from "./Pages/Landing/Landing"
 import Admin from "./Pages/Admin/Admin"
 import User from "./Pages/User/User"
@@ -7,7 +7,7 @@ export const DataContext = createContext()
 
 export default function App() {
 	const [showRegistration, setShowRegistration] = useState(false)
-	const history = useNavigate()
+	const history = useHistory()
 	const [loggedIn, setLoggedIn] = useState({
 		state: false,
 		isAdmin: false,
@@ -26,7 +26,8 @@ export default function App() {
 			firstName: "",
 			lastName: "",
 		})
-		history("/")
+
+		history.push("/")
 	}
 
 	// IF on page load, there is a token in LS, set loggedIn data
@@ -61,11 +62,11 @@ export default function App() {
 	return (
 		<div>
 			<DataContext.Provider value={ { setShowRegistration, showRegistration, loggedIn, setLoggedIn, BASE_URL, handleLogout } }>
-				<Routes>
-					<Route path="/admin" element={ <Admin/> } />
-					<Route path="/user" element={ <User/> } />
-					<Route path="/" element={ <Landing/> } />
-				</Routes>
+				<Switch>
+					<Route path="/admin" component={ Admin } />
+					<Route path="/user" component={ User } />
+					<Route path="/" component={ Landing } />
+				</Switch>
 			</DataContext.Provider>
 		</div>
 	)

@@ -1,5 +1,5 @@
 import {useContext, useState} from "react"
-import {useNavigate} from "react-router-dom"
+import {useHistory} from "react-router-dom"
 import {DataContext} from "../../App"
 import {forgotPassword} from "../../API/apiData"
 import ellipse2 from "../../images/ellipse-load@2x.png"
@@ -10,7 +10,7 @@ export default function LoginForm({setSlide}) {
     const {BASE_URL, setLoggedIn} = useContext(DataContext)
     const PWR_USER = process.env.REACT_APP_PWR_USER
     const PWR_PASS = process.env.REACT_APP_PWR_PASS
-    const history = useNavigate()
+    const history = useHistory()
     const [formData, setFormData] = useState({username: "", password: ""})
     const [error, setError] = useState(false)
     const [loggingIn, setLoggingIn] = useState(false)
@@ -62,7 +62,7 @@ export default function LoginForm({setSlide}) {
                     })
                     setLoggingIn(false)
                     setHideLogin(false)
-                    history("/admin/dashboard")
+                    history.push("/admin/dashboard")
                 } else {
                     setLoggedIn({
                         state: true,
@@ -71,7 +71,7 @@ export default function LoginForm({setSlide}) {
                     })
                     setLoggingIn(false)
                     setHideLogin(false)
-                    history(`/user/${data.username}/dashboard`)
+                    history.push(`/user/${data.username}/dashboard`)
                 }
             } else {
                 console.error("login error")

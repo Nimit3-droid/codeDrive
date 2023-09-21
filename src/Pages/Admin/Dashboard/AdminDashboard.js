@@ -1,15 +1,15 @@
 import AdminStats from './AdminStats'
 import UserList from './UserList'
-import { Link, Routes, Route, useNavigate } from 'react-router-dom'
+import { Link, Switch, Route, useHistory } from 'react-router-dom'
 
 export default function AdminDashboard({ pageSelect, setPageSelect }) {
-	const history = useNavigate()
+	const history = useHistory()
 
 	const handleChange = (e) => {
 		const value = e.target.value
 		setPageSelect(value)
-		if (value === 'dashboard') history("/admin/dashboard")
-		if (value === 'users') history("/admin/dashboard/userlist")
+		if (value === 'dashboard') history.push("/admin/dashboard")
+		if (value === 'users') history.push("/admin/dashboard/userlist")
 	}
 
 	return (
@@ -26,10 +26,10 @@ export default function AdminDashboard({ pageSelect, setPageSelect }) {
 				</select>
 			</div>
 			<div className="sm:ml-8 w-full">
-				<Routes>
-					<Route path="/admin/dashboard/userlist" element={ <UserList/> } />
-					<Route path="/admin/dashboard/" element={ <AdminStats/> } />
-				</Routes>
+				<Switch>
+					<Route path="/admin/dashboard/userlist" component={ UserList } />
+					<Route path="/admin/dashboard/" component={ AdminStats } />
+				</Switch>
 			</div>
 		</div>
 	)

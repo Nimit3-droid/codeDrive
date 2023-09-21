@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect, useLayoutEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Snippet from "../../../Components/Snippet";
 import { UserContext } from "../User";
 import hljs from "highlight.js";
@@ -7,7 +7,7 @@ import hljs from "highlight.js";
 export default function SnippetView() {
   const { userData, filter, setFilter, snippetData } = useContext(UserContext);
   const [search, setSearch] = useState("");
-  const history = useNavigate();
+  const history = useHistory();
 
   const handleChange = (e) => setSearch(e.target.value);
   const handleClear = () => setSearch("");

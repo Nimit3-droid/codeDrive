@@ -1,5 +1,5 @@
 import {useState, useContext, useRef} from "react"
-import {useNavigate, Link} from "react-router-dom"
+import {useHistory, Link} from "react-router-dom"
 import {DataContext} from "../../App"
 import {UserContext} from "../../Pages/User/User"
 import {createSnippet, editSnippet, deleteSnippet} from "../../API/apiData"
@@ -13,7 +13,7 @@ export default function SnippetForm() {
 	const [newFolder, setNewFolder] = useState()
 	const [showLangList, setShowLangList] = useState(false)
 	const [error, setError] = useState(false)
-	const history = useNavigate()
+	const history = useHistory()
 	const codeText = useRef()
 
 	const handleChange = (e) => {
@@ -65,7 +65,7 @@ export default function SnippetForm() {
 		setRefreshTrigger(!refreshTrigger)
 		setSnippetSubmitMode("POST")
 		setFilter(snippetData.parentFolder)
-		history(`/user/${userData.username}/dashboard`)
+		history.push(`/user/${userData.username}/dashboard`)
 	}
 
 	//  handle removing the snippet from the user's snippet data
@@ -84,7 +84,7 @@ export default function SnippetForm() {
 		setRefreshTrigger(!refreshTrigger)
 		setSnippetSubmitMode("POST")
 		setFilter(snippetForm.parentFolder)
-		history(`/user/${userData.username}/dashboard`)
+		history.push(`/user/${userData.username}/dashboard`)
 	}
 
 	return (

@@ -1,5 +1,5 @@
 import {useContext, useState, useEffect, useLayoutEffect} from 'react'
-import {useNavigate} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import Snippet from '../../../Components/Snippet'
 import {getFriendSnippets} from '../../../API/apiData'
 import {UserContext} from '../User'
@@ -12,7 +12,7 @@ export default function View({friendFilter, setFriendFilter}) {
     const [friendSnippetData, setFriendSnippetData] = useState([])
     const [search, setSearch] = useState("")
 
-    const history = useNavigate()
+    const history = useHistory()
 
     const handleChange = (e) => {
         setSearch(e.target.value)

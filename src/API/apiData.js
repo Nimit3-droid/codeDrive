@@ -16,6 +16,7 @@ export const getAllUsers = async (BASE_URL, token) => {
 }
 
 export const getUserData = async (BASE_URL, username, token) => {
+
 	try {
 		const response = await fetch(`${ BASE_URL }/user/${ username }`, {
 			method: 'GET',

@@ -1,6 +1,6 @@
 import {useState, useContext, useEffect, createContext} from "react"
 import {DataContext} from "../../App"
-import {Routes, Route} from "react-router-dom"
+import {Switch, Route} from "react-router-dom"
 import {getUserData, getAllSnippets} from "../../API/apiData"
 import UserDashboard from "./Dashboard/UserDashboard"
 import UserProfile from "./Profile/UserProfile"
@@ -71,11 +71,11 @@ export default function User() {
 								setFriendsList,
 							}}
 						>
-							<Routes>
-								<Route path="/user/:username/coderoom" element={<Dashboard/>} />
-								<Route path="/user/:username/profile" element={<UserProfile/>} />
-								<Route path="/user/:username/" element={<UserDashboard/>} />
-							</Routes>
+							<Switch>
+								<Route path="/user/:username/coderoom" component={Dashboard} />
+								<Route path="/user/:username/profile" component={UserProfile} />
+								<Route path="/user/:username/" component={UserDashboard} />
+							</Switch>
 						</UserContext.Provider>
 					</main>
 				</div>

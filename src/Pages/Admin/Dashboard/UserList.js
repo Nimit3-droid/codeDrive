@@ -7,7 +7,7 @@ export default function UserList() {
 	const { BASE_URL } = useContext(DataContext)
 	const [allUsers, setAllUsers] = useState([])
 	const [filter, setFilter] = useState("")
-	console.log('nimit',BASE_URL)
+
 
 	const handleChange = (e) => {
 		setFilter(e.target.value)
